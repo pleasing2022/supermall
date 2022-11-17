@@ -1,0 +1,65 @@
+@import "./normalize.css";
+
+/* :root -> 获取根元素html */
+:root {
+    --color-text: #666;
+    --color-high-text: #ff5777;
+    --color-tint: #ff8198;
+    --color-background: #fff;
+    --font-size: 14px;
+    --line-height: 1.5;
+}
+
+*,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ *{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+ }
+body {
+    font-family:  "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+    user-select: none; /* 禁止用户鼠标在页面上选中文字/图片等 */
+    -webkit-tap-highlight-color: transparent; /* webkit是苹果浏览器引擎，tap带年底，highlight背景高亮，color颜色，颜色用数值调节*/
+    background: var(--color-background);
+    /* rem vw/vh */
+    /*
+      有好几个地方代码有问题
+      这个地方给设置了100vw 浏览器计算css的100vw宽度会把下拉条也计算进去 就会出现横向的滚动条
+      就是右边我拖动的这个 假如浏览器宽度是1920px 右边那玩意占了20px 100vw还是表示1920px
+      这样就相当于在1900px的页面里设置了给1920px宽度的div 就出现横向滚动条撑出页面了
+      浏览器宽度是1536 去掉滚动条就剩150几了 但是100vw还是表示1536px
+    */
+    /* width: 100vw; */
+    line-height: var(--line-height);
+}
+
+a {
+    color: var(--color-text);
+    text-decoration: none;
+}
+
+.clear-fix::after {
+    clear: both;
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    visibility: hidden;
+}
+
+.clear-fix {
+    zoom: 1;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
